@@ -1,52 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Contact form</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <title>Frontend Mentor | Contact form</title>
 
-  Contact Us
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
 
-  First Name
-  This field is required
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./toast.css" />
+    <link rel="stylesheet" href="./main.css" />
 
-  Last Name
-  This field is required
+    <script type="module" src="./main.js"></script>
 
-  Email Address
-  Please enter a valid email address
-  This field is required
+    <style>
+      .attribution {
+        font-size: 1rem;
+        text-align: center;
+      }
+      .attribution a {
+        color: var(--clr--grey-500);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <form id="contact_us" method="POST" action="" class="form">
+        <h1 class="form__title">Contact Us</h1>
 
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
+        <div class="form__group-row">
+          <div class="form__group">
+            <label class="form__label form__label--required" for="first_name"
+              >First Name
+              <span class="form__label-required" aria-hidden="true"
+                >*</span
+              ></label
+            >
+            <input
+              type="text"
+              name="first_name"
+              id="first_name"
+              class="form__input"
+              required
+              aria-required="true"
+            />
+            <span class="form__error" id="first_name-error"
+              >This field is required</span
+            >
+          </div>
 
-  Message
-  This field is required
+          <div class="form__group">
+            <label class="form__label form__label--required" for="last_name"
+              >Last Name
+              <span class="form__label-required" aria-hidden="true">*</span>
+            </label>
+            <input
+              type="text"
+              name="last_name"
+              id="last_name"
+              class="form__input"
+              required
+              aria-required="true"
+            />
+            <span class="form__error" id="last_name-error"
+              >This field is required</span
+            >
+          </div>
+        </div>
 
-  I consent to being contacted by the team
-  To submit this form, please consent to being contacted
+        <div class="form__group form__group--error">
+          <label class="form__label form__label--required" for="email"
+            >Email Address
+            <span class="form__label-required" aria-hidden="true"
+              >*</span
+            ></label
+          >
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form__input form__input--error"
+            required
+            aria-required="true"
+            aria-invalid="true"
+            aria-describedby="email-valid-error"
+          />
+          <span class="form__error" id="email-valid-error"
+            >Please enter a valid email address</span
+          >
+          <span class="form__error" id="email-required-error"
+            >This field is required</span
+          >
+        </div>
 
-  Submit
+        <div class="form__group">
+          <label class="form__label form__label--required"
+            >Query Type
+            <span class="form__label-required" aria-hidden="true"
+              >*</span
+            ></label
+          >
+          <fieldset class="form__options">
+            <label class="form__option flex__option">
+              <input
+                type="radio"
+                value="General Enquiry"
+                name="query_type"
+                class="form__radio"
+                required
+                aria-required="true"
+              />
+              General Enquiry
+            </label>
+            <label class="form__option flex__option">
+              <input
+                type="radio"
+                value="Support Request"
+                name="query_type"
+                class="form__radio"
+                required
+                aria-required="true"
+              />
+              Support Request
+            </label>
+            <span class="form__error" id="query_type-error"
+              >Please select a query type</span
+            >
+          </fieldset>
+        </div>
 
-  Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+        <div class="form__group">
+          <label class="form__label form__label--required" for="message"
+            >Message
+            <span class="form__label-required" aria-hidden="true"
+              >*</span
+            ></label
+          >
+          <textarea
+            id="message"
+            name="message"
+            class="form__textarea"
+            required
+            aria-required="true"
+          >
+          </textarea>
+          <span class="form__error" id="message-error"
+            >This field is required</span
+          >
+        </div>
+
+        <div class="form__group">
+          <label class="form__label flex__option">
+            <input
+              type="checkbox"
+              value="consent"
+              name="consent"
+              class="form__checkbox"
+              required
+              aria-required="true"
+            />
+            I consent to being contacted by the team
+            <span class="form__label-required" aria-hidden="true">*</span>
+          </label>
+          <span class="form__error" id="consent-error"
+            >To submit this form, please consent to being contacted</span
+          >
+        </div>
+
+        <div class="form__group">
+          <button type="submit" class="form__button">Submit</button>
+        </div>
+      </form>
+
+      <div
+        class="toast toast--success hidden"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="toast__icon" aria-hidden="true">✅</div>
+        <div class="toast__content">
+          <h4 class="toast__title">Message Sent!</h4>
+          <p class="toast__message">
+            Thanks for completing the form. We'll be in touch soon!
+          </p>
+        </div>
+        <button class="toast__close" aria-label="Close notification">
+          &times;
+        </button>
+      </div>
+    </main>
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Barrie Freyre</a>.
+    </footer>
+  </body>
 </html>
