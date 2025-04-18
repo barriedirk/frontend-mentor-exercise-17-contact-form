@@ -4,6 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <meta name="author" content="Barrie Freyre" />
+
+    <!-- These won’t be understood by browsers or SEO tools directly but might be useful if you're using scripts or tools that read them.-->
+    <meta name="linkedin" content="https://www.linkedin.com/in/barriefreyre/" />
+    <meta name="github" content="https://github.com/barriedirk" />
+    <meta
+      name="frontendmentor"
+      content="https://www.frontendmentor.io/profile/barriedirk"
+    />
+
+    <!--
+    This is a more semantically correct way, used for linking to identities or social profiles:
+    rel="me" is recognized by some platforms (like Mastodon, IndieWeb, etc.) to indicate ownership or identity.-->
+    <link rel="me" href="https://www.linkedin.com/in/barriefreyre/" />
+    <link rel="me" href="https://github.com/barriedirk" />
+    <link rel="me" href="https://www.frontendmentor.io/profile/barriedirk" />
+
+    <!-- This tells search engines who you are and what profiles belong to you. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Barrie Freyre",
+        "url": "",
+        "sameAs": [
+          "https://www.linkedin.com/in/barriefreyre/",
+          "https://github.com/barriedirk",
+          "https://www.frontendmentor.io/profile/barriedirk"
+        ]
+      }
+    </script>
+
     <link
       rel="icon"
       type="image/png"
@@ -115,25 +147,31 @@
           >
           <fieldset class="form__options">
             <label class="form__option flex__option">
-              <input
-                type="radio"
-                value="General Enquiry"
-                name="query_type"
-                class="form__radio"
-                required
-                aria-required="true"
-              />
+              <span class="custom-radio" role="radio">
+                <input
+                  type="radio"
+                  value="General Enquiry"
+                  name="query_type"
+                  class="form__radio"
+                  required
+                  aria-required="true"
+                />
+                <span class="checkmark" aria-hidden="true"></span>
+              </span>
               General Enquiry
             </label>
             <label class="form__option flex__option">
-              <input
-                type="radio"
-                value="Support Request"
-                name="query_type"
-                class="form__radio"
-                required
-                aria-required="true"
-              />
+              <span class="custom-radio" role="radio">
+                <input
+                  type="radio"
+                  value="Support Request"
+                  name="query_type"
+                  class="form__radio"
+                  required
+                  aria-required="true"
+                />
+                <span class="checkmark" aria-hidden="true"></span>
+              </span>
               Support Request
             </label>
             <span class="form__error" id="query_type-error"
@@ -162,16 +200,19 @@
           >
         </div>
 
-        <div class="form__group">
+        <div class="form__group form__group--spaced">
           <label class="form__label flex__option">
-            <input
-              type="checkbox"
-              value="consent"
-              name="consent"
-              class="form__checkbox"
-              required
-              aria-required="true"
-            />
+            <span class="custom-checkbox" role="checkbox">
+              <input
+                type="checkbox"
+                value="consent"
+                name="consent"
+                class="form__checkbox"
+                required
+                aria-required="true"
+              />
+              <span class="checkmark" aria-hidden="true"></span>
+            </span>
             I consent to being contacted by the team
             <span class="form__label-required" aria-hidden="true">*</span>
           </label>
@@ -207,7 +248,10 @@
     <footer class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">Barrie Freyre</a>.
+      Coded by
+      <a href="https://www.linkedin.com/in/barriefreyre/" target="_blank"
+        >Barrie Freyre</a
+      >.
     </footer>
   </body>
 </html>

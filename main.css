@@ -14,6 +14,8 @@
   --clr-white: hsl(0, 0%, 100%);
   --clr-red: hsl(0, 66%, 54%);
 
+  --clr-light-grey: hsl(0, 0%, 95%);
+
   --clr-grey-500: hsl(186, 15%, 59%);
   --clr-grey-900: hsl(187, 24%, 22%);
 
@@ -45,6 +47,12 @@ body {
 
 main {
   width: 100%;
+  padding-top: 32px;
+}
+
+input[type="radio"]:checked,
+input[type="checkbox"]:checked {
+  background-color: var(--clr-green-600);
 }
 
 .form__group-row,
@@ -57,6 +65,7 @@ main {
 .form {
   background-color: var(--clr-white);
   max-width: 343px;
+  width: 100%;
   border-radius: 16px;
   padding: 24px;
 }
@@ -73,6 +82,11 @@ main {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+.form__group--spaced {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .form__option,
@@ -95,6 +109,7 @@ main {
 .form__label {
   font-size: 1.6rem;
   font-weight: var(--fw-normal);
+  color: var(--clr-grey-900);
 }
 
 .form__label-required {
@@ -106,7 +121,7 @@ main {
 .form__textarea {
   border-radius: 8px;
   border: 1px solid var(--clr-grey-500);
-  padding: 8px 10px;
+  padding: 12px 10px;
   color: var(--clr-grey-900);
 }
 
@@ -123,6 +138,61 @@ main {
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
+}
+
+.custom-radio,
+.custom-checkbox {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  padding-left: 30px;
+  line-height: 20px;
+  user-select: none;
+}
+
+.custom-radio input,
+.custom-checkbox input {
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.custom-radio .checkmark,
+.custom-checkbox .checkmark {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 20px;
+  width: 20px;
+  background-color: var(--clr-light-grey);
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  border: 1px solid var(--clr-grey-500);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.custom-radio input:checked + .checkmark,
+.custom-checkbox input:checked + .checkmark {
+  background-color: transparent;
+}
+
+.custom-radio input:checked + .checkmark {
+  background-image: url("./assets/images/icon-radio-selected.svg");
+}
+
+.custom-checkbox input:checked + .checkmark {
+  background-image: url("./assets/images/icon-checkbox-check.svg");
+}
+
+.custom-radio input:focus + .checkmark,
+.custom-checkbox input:focus + .checkmark {
+  outline: 1px solid var(--clr-light-grey);
+  outline-offset: 2px;
+}
+
+.custom-radio .checkmark {
+  border-radius: 50%;
 }
 
 .form__error {
@@ -156,6 +226,7 @@ main {
 @media screen and (min-width: 768px) {
   .form {
     max-width: 690px;
+    padding: 40px;
   }
 
   .form__textarea {
@@ -171,5 +242,11 @@ main {
   .form__options,
   .form__group-row .form__group {
     flex: 1;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .form {
+    max-width: 736px;
   }
 }
