@@ -152,6 +152,7 @@ input[type="checkbox"]:checked {
   padding-left: 30px;
   line-height: 20px;
   user-select: none;
+  outline: transparent;
 }
 
 .custom-radio input,
