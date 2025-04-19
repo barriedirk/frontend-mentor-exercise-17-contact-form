@@ -71,10 +71,17 @@
   <body>
     <main>
       <form id="contact_us" method="POST" action="" class="form">
+        <!-- 
+        Note: I have remove those attribute for the inputs and textarea to allow
+              show the messages errors.
+        
+        required
+        aria-required="true" 
+        -->
         <h1 class="form__title">Contact Us</h1>
 
         <div class="form__group-row">
-          <div class="form__group">
+          <div class="form__group" data-field="">
             <label class="form__label form__label--required" for="first_name"
               >First Name
               <span class="form__label-required" aria-hidden="true"
@@ -86,12 +93,10 @@
               name="first_name"
               id="first_name"
               class="form__input"
-              required
-              aria-required="true"
             />
-            <span class="form__error" id="first_name-error"
+            <!-- <span class="form__error" id="first_name-error"
               >This field is required</span
-            >
+            > -->
           </div>
 
           <div class="form__group">
@@ -104,38 +109,27 @@
               name="last_name"
               id="last_name"
               class="form__input"
-              required
-              aria-required="true"
             />
-            <span class="form__error" id="last_name-error"
+            <!-- <span class="form__error" id="last_name-error"
               >This field is required</span
-            >
+            > -->
           </div>
         </div>
 
-        <div class="form__group form__group--error">
+        <div class="form__group">
           <label class="form__label form__label--required" for="email"
             >Email Address
             <span class="form__label-required" aria-hidden="true"
               >*</span
             ></label
           >
-          <input
-            type="email"
-            name="email"
-            id="email"
-            class="form__input form__input--error"
-            required
-            aria-required="true"
-            aria-invalid="true"
-            aria-describedby="email-valid-error"
-          />
-          <span class="form__error" id="email-valid-error"
+          <input type="email" name="email" id="email" class="form__input" />
+          <!-- <span class="form__error" id="email-valid-error"
             >Please enter a valid email address</span
           >
           <span class="form__error" id="email-required-error"
             >This field is required</span
-          >
+          > -->
         </div>
 
         <div class="form__group">
@@ -153,8 +147,6 @@
                   value="General Enquiry"
                   name="query_type"
                   class="form__radio"
-                  required
-                  aria-required="true"
                 />
                 <span class="checkmark" aria-hidden="true"></span>
               </span>
@@ -167,17 +159,15 @@
                   value="Support Request"
                   name="query_type"
                   class="form__radio"
-                  required
-                  aria-required="true"
                 />
                 <span class="checkmark" aria-hidden="true"></span>
               </span>
               Support Request
             </label>
-            <span class="form__error" id="query_type-error"
-              >Please select a query type</span
-            >
           </fieldset>
+          <!-- <span class="form__error" id="query_type-error"
+            >Please select a query type</span
+          > -->
         </div>
 
         <div class="form__group">
@@ -187,17 +177,11 @@
               >*</span
             ></label
           >
-          <textarea
-            id="message"
-            name="message"
-            class="form__textarea"
-            required
-            aria-required="true"
-          >
+          <textarea id="message" name="message" class="form__textarea">
           </textarea>
-          <span class="form__error" id="message-error"
+          <!-- <span class="form__error" id="message-error"
             >This field is required</span
-          >
+          > -->
         </div>
 
         <div class="form__group form__group--spaced">
@@ -208,17 +192,15 @@
                 value="consent"
                 name="consent"
                 class="form__checkbox"
-                required
-                aria-required="true"
               />
               <span class="checkmark" aria-hidden="true"></span>
             </span>
             I consent to being contacted by the team
             <span class="form__label-required" aria-hidden="true">*</span>
           </label>
-          <span class="form__error" id="consent-error"
+          <!-- <span class="form__error" id="consent-error"
             >To submit this form, please consent to being contacted</span
-          >
+          > -->
         </div>
 
         <div class="form__group">
@@ -227,21 +209,25 @@
       </form>
 
       <div
+        id="toast"
         class="toast toast--success hidden"
         role="alert"
         aria-live="assertive"
         aria-atomic="true"
       >
-        <div class="toast__icon" aria-hidden="true">✅</div>
         <div class="toast__content">
-          <h4 class="toast__title">Message Sent!</h4>
+          <h4 class="toast__title">
+            <img
+              class="toast__icon"
+              src="./assets/images/icon-success-check.svg"
+              alt=""
+            />
+            Message Sent!
+          </h4>
           <p class="toast__message">
             Thanks for completing the form. We'll be in touch soon!
           </p>
         </div>
-        <button class="toast__close" aria-label="Close notification">
-          &times;
-        </button>
       </div>
     </main>
 
